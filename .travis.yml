@@ -1,0 +1,18 @@
+language: php
+php:
+- '7.3'
+sudo: required
+services:
+- docker
+script:
+- docker build -t dhawton/base:latest images/base
+- docker build -t dhawton/php:latest images/php
+- docker build -t dhawton/nginx-php:latest images/nginx-php
+after_success:
+- if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+    docker push dhawton/base:latest;
+    docker push dhawton/nginx:latest;
+    docker push dhawton/php:latest;
+    docker push dhawton/php-nginx:latest;
+  fi
