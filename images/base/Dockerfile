@@ -7,6 +7,8 @@ RUN set -x && \
     mkdir /entrypoint.d && \
     apk update && \
     apk upgrade && \
+    chmod 755 /usr/local/bin/apk-* && \
+    chmod 755 /usr/local/bin/docker-* && \
     apk-install ca-certificates openssl curl wget curl sed tzdata && \
     update-ca-certificates && \
     rm -rf /var/cache/apk/* && \
