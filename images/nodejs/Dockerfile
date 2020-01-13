@@ -1,6 +1,6 @@
 FROM dhawton/base
 
-RUN apk-install nodejs && \
+RUN apk-install nodejs npm && \
   find /var/lib/apk/ -mindepth 1 -delete && \
   find /tmp/ /var/log/ -mindepth 1 -delete && \
   rm -rf /root/.cache && \
