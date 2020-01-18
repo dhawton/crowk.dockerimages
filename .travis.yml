@@ -3,14 +3,14 @@ services:
 - docker
 script:
 - docker build -t dhawton/base:latest images/base
-- docker build -t dhawton/php:latest images/php
-- docker build -t dhawton/nginx-php:latest images/nginx-php
+#- docker build -t dhawton/php:latest images/php
+#- docker build -t dhawton/nginx-php:latest images/nginx-php
 - docker build -t dhawton/nodejs:latest images/nodejs
 after_success:
 - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker push dhawton/base:latest;
-    docker push dhawton/php:latest;
-    docker push dhawton/nginx-php:latest;
+    #docker push dhawton/php:latest;
+    #docker push dhawton/nginx-php:latest;
     docker push dhawton/nodejs:latest;
   fi

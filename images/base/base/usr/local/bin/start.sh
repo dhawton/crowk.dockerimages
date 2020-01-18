@@ -22,9 +22,11 @@ function runEntrypoints() {
   if [[ -d "$1" ]]; then
     cd $1
     for FILE in *.sh; do
-      echo "-> Executing ${FILE}"
-      # run custom scripts, only once
-      bash "$FILE" -H
+      if [[ -f $FILE ]]; then
+        echo "-> Executing ${FILE}"
+        # run custom scripts, only once
+        bash "$FILE" -H
+      fi
     done
     cd ~
   fi
