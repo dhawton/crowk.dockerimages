@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function createDockerStdoutStderr() {
     # link stdout from docker
     if [[ -n "$LOG_STDOUT" ]]; then

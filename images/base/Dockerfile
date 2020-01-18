@@ -9,7 +9,7 @@ RUN set -x && \
     apk upgrade && \
     chmod 755 /usr/local/bin/apk-* && \
     chmod 755 /usr/local/bin/docker-* && \
-    apk-install ca-certificates openssl curl wget curl sed tzdata && \
+    apk-install ca-certificates openssl curl wget curl sed tzdata bash && \
     update-ca-certificates && \
     rm -rf /var/cache/apk/* && \
     find /var/lib/apk/ -mindepth 1 -delete && \
@@ -25,4 +25,4 @@ RUN GOREPLACE_VERSION=1.1.2 \
     && wget -O /usr/local/bin/go-replace https://github.com/webdevops/go-replace/releases/download/$GOREPLACE_VERSION/gr-64-linux \
     && chmod +x /usr/local/bin/go-replace
 
-CMD ["/bin/sh","/usr/local/bin/start.sh"]
+CMD ["/bin/bash","/usr/local/bin/start.sh"]
