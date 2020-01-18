@@ -23,7 +23,7 @@ function runEntrypoints() {
     for FILE in "$1"/*.sh; do
       echo "-> Executing ${FILE}"
       # run custom scripts, only once
-      /bin/bash "$FILE"
+      bash "$FILE" -H
     done
   fi
 }
